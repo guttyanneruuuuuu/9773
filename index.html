@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky Runners</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <h1>Sky Runners</h1>
+        <div class="controls">
+          <label>
+            モード
+            <select id="modeSelect">
+              <option value="single">シングル (vs AI)</option>
+              <option value="local">ローカル対戦</option>
+            </select>
+          </label>
+          <label>
+            P1
+            <select id="p1Char"></select>
+          </label>
+          <label>
+            P2 / AI
+            <select id="p2Char"></select>
+          </label>
+          <button id="startBtn" type="button">スタート / リセット</button>
+        </div>
+        <div class="scoreboard">
+          <div id="p1Status"></div>
+          <div id="p2Status"></div>
+          <div id="battleInfo">Ready</div>
+        </div>
+      </header>
+
+      <section class="arena-wrap">
+        <canvas id="arena" width="1100" height="620" aria-label="Sky Runners Arena"></canvas>
+      </section>
+
+      <section class="help">
+        <p><strong>キー操作</strong> P1: A/D 移動, W ジャンプ, Shift ダッシュ, F 攻撃</p>
+        <p><strong>キー操作</strong> P2: ←/→ 移動, ↑ ジャンプ, / ダッシュ, . 攻撃</p>
+        <p>スマホでは画面下のタッチボタンで操作できます。</p>
+      </section>
+    </main>
+
+    <section class="touch-controls" aria-label="touch controls">
+      <div class="touch-block" data-player="1">
+        <h3>P1</h3>
+        <div class="touch-row">
+          <button data-key="left">◀</button>
+          <button data-key="right">▶</button>
+          <button data-key="jump">⤒</button>
+        </div>
+        <div class="touch-row">
+          <button data-key="dash">⚡</button>
+          <button data-key="attack">✦</button>
+        </div>
+      </div>
+      <div class="touch-block" data-player="2">
+        <h3>P2</h3>
+        <div class="touch-row">
+          <button data-key="left">◀</button>
+          <button data-key="right">▶</button>
+          <button data-key="jump">⤒</button>
+        </div>
+        <div class="touch-row">
+          <button data-key="dash">⚡</button>
+          <button data-key="attack">✦</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
