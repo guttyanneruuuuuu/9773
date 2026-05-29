@@ -1,0 +1,125 @@
+:root {
+  color-scheme: dark;
+  --bg: #0a0f1e;
+  --panel: #121a2f;
+  --accent: #6ee7ff;
+  --accent-2: #ff9a5f;
+  --text: #e8edf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: radial-gradient(circle at 30% 20%, #16264d, var(--bg));
+  color: var(--text);
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.hud {
+  background: linear-gradient(140deg, rgba(18, 26, 47, 0.9), rgba(12, 18, 35, 0.95));
+  border: 1px solid rgba(110, 231, 255, 0.25);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+h1 {
+  margin: 4px 0 8px;
+  font-size: 1.6rem;
+}
+
+.controls,
+.scoreboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+select,
+button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: #1a2442;
+  color: var(--text);
+  padding: 6px 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.scoreboard {
+  margin-top: 8px;
+}
+
+#p1Status,
+#p2Status,
+#battleInfo {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.arena-wrap {
+  margin-top: 12px;
+}
+
+#arena {
+  width: 100%;
+  max-width: 1100px;
+  border: 2px solid rgba(110, 231, 255, 0.35);
+  border-radius: 12px;
+  background: linear-gradient(#5f89c9, #223960 55%, #121a2f 100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.help {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+
+.touch-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  padding: 10px;
+}
+
+.touch-block {
+  background: rgba(18, 26, 47, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.touch-block h3 {
+  margin: 4px 0 8px;
+}
+
+.touch-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.touch-row button {
+  flex: 1;
+  font-size: 1.05rem;
+  min-height: 40px;
+}
+
+@media (max-width: 780px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}

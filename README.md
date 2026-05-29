@@ -1,3 +1,14 @@
-# 9773 Repository
+# Sky Runners
 
-This repository will host the `Sky Runners` game, a 2D action game built using HTML, JavaScript, and CSS.
+HTML/CSS/JavaScriptだけで動く、GitHub Pages向けの2D対戦アクションゲームです。
+
+## 特徴
+- シングルモード（vs AI）とローカル2人対戦
+- 水平移動・ジャンプ・ダッシュ・攻撃の空中バトル
+- キャラクター選択（スピード/攻撃性能が異なる3タイプ）
+- 高低差のある足場を自動生成するアリーナ
+- キーボード操作とタッチ操作の両対応
+
+## 実行方法
+静的ファイルのみで構成されています。  
+`index.html` をブラウザで開くか、GitHub Pagesでそのままホストしてください。
