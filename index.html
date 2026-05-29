@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffdf7d" />
+    <title>Picnic Comet Rally</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell">
+      <section id="menu" class="panel menu-panel">
+        <div class="logo-card">
+          <span class="eyebrow">静的ホスティング対応・縦画面対戦</span>
+          <h1>Picnic<br />Comet Rally</h1>
+          <p>彗星みたいに走り回って、色のくだものを集め、空中ピクニック皿へ正しい順番で配達しよう。</p>
+        </div>
+        <div class="button-grid">
+          <button id="botBtn" class="primary">ボットと即対戦</button>
+          <button id="hostBtn">友達ルームを作る</button>
+          <button id="joinBtn">招待で参加</button>
+          <button id="howBtn">遊び方</button>
+        </div>
+        <article id="how" class="how hidden">
+          <h2>ルール</h2>
+          <ul>
+            <li>指でドラッグして自分のコメットを動かす。</li>
+            <li>中央に出るレシピと同じ色を順番に最大3個まで集める。</li>
+            <li>皿へ配達すると得点。間違えるとジャムがはじけて減速。</li>
+            <li>下の「ポン！」で相手やアイテムを弾く。60秒で高得点の勝ち。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="room" class="panel room-panel hidden">
+        <h2 id="roomTitle">友達ルーム</h2>
+        <p id="roomHelp"></p>
+        <textarea id="signalBox" spellcheck="false" placeholder="ここに招待または返事のテキストが出ます"></textarea>
+        <div class="button-grid compact">
+          <button id="copySignal">コピー</button>
+          <button id="pasteSignal">貼り付けて接続</button>
+          <button id="startNet" class="primary">接続できたら開始</button>
+          <button id="backMenu">戻る</button>
+        </div>
+        <p id="netStatus" class="status">未接続</p>
+      </section>
+
+      <section id="game" class="game hidden">
+        <canvas id="arena" width="420" height="820" aria-label="Picnic Comet Rally game arena"></canvas>
+        <div class="hud top">
+          <div><b id="p1Score">0</b><span>YOU</span></div>
+          <div class="timer"><b id="timer">60</b><span>sec</span></div>
+          <div><b id="p2Score">0</b><span id="rivalLabel">BOT</span></div>
+        </div>
+        <div id="recipe" class="recipe"></div>
+        <div class="hud bottom">
+          <button id="pulseBtn" class="pulse">ポン！</button>
+          <button id="leaveBtn">終了</button>
+        </div>
+        <div id="toast" class="toast hidden"></div>
+      </section>
+    </main>
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>
