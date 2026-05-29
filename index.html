@@ -2,63 +2,172 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#ffdf7d" />
-    <title>Picnic Comet Rally</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#1b1140" />
+    <title>Picnic Comet Rally ULTRA</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="phone-shell">
+
+      <!-- ===== Menu ===== -->
       <section id="menu" class="panel menu-panel">
         <div class="logo-card">
-          <span class="eyebrow">静的ホスティング対応・縦画面対戦</span>
-          <h1>Picnic<br />Comet Rally</h1>
-          <p>彗星みたいに走り回って、色のくだものを集め、空中ピクニック皿へ正しい順番で配達しよう。</p>
+          <span class="eyebrow">★ NEON PICNIC BATTLE ★</span>
+          <h1 class="title">
+            <span class="title-line">Picnic</span>
+            <span class="title-line accent">Comet</span>
+            <span class="title-line">Rally</span>
+            <span class="title-badge">ULTRA</span>
+          </h1>
+          <p class="lead">空の上のピクニック皿に、コメットになって果実を撃ち込め。<br/>ダッシュ、ポン！、パワーアップを駆使した60秒の白熱対決。</p>
         </div>
+
+        <div class="diff-row" id="diffRow">
+          <span class="diff-label">難易度</span>
+          <button class="diff-btn" data-diff="easy">かんたん</button>
+          <button class="diff-btn is-active" data-diff="normal">ふつう</button>
+          <button class="diff-btn" data-diff="hard">むずい</button>
+          <button class="diff-btn" data-diff="insane">激辛</button>
+        </div>
+
         <div class="button-grid">
-          <button id="botBtn" class="primary">ボットと即対戦</button>
-          <button id="hostBtn">友達ルームを作る</button>
-          <button id="joinBtn">招待で参加</button>
-          <button id="howBtn">遊び方</button>
+          <button id="botBtn" class="primary big">▶ ボットと即対戦</button>
+          <div class="button-grid two">
+            <button id="hostBtn">👥 ルーム作成</button>
+            <button id="joinBtn">🔗 招待で参加</button>
+          </div>
+          <button id="howBtn" class="ghost">❓ あそびかた</button>
         </div>
+
         <article id="how" class="how hidden">
-          <h2>ルール</h2>
+          <h2>🎮 操作</h2>
           <ul>
-            <li>指でドラッグして自分のコメットを動かす。</li>
-            <li>中央に出るレシピと同じ色を順番に最大3個まで集める。</li>
-            <li>皿へ配達すると得点。間違えるとジャムがはじけて減速。</li>
-            <li>下の「ポン！」で相手やアイテムを弾く。60秒で高得点の勝ち。</li>
+            <li><b>左ジョイスティック</b>でコメットを動かす（画面どこでも触ってOK）。</li>
+            <li><b>ダッシュ</b>で一気に加速してすり抜け＆体当たり。</li>
+            <li><b>ポン！</b>で衝撃波を放ち、相手を吹き飛ばして果実を落とさせる。</li>
+          </ul>
+          <h2>🍓 勝ち方</h2>
+          <ul>
+            <li>中央のレシピと同じ色のフルーツを順番に拾って皿に届ける。</li>
+            <li>連続成功で<b>コンボ倍率</b>がアップ。最大 ×5！</li>
+            <li>ステージに降ってくる<b>パワーアップ</b>を狙え。ゴールド果実はボーナス点。</li>
+            <li>残り10秒は<b>サドンデス</b>突入、得点2倍＆スピードアップ！</li>
+          </ul>
+          <h2>🎁 パワーアップ</h2>
+          <ul>
+            <li>⚡<b>SPEED</b>: 移動速度アップ</li>
+            <li>🛡<b>SHIELD</b>: 1回だけ衝撃を無効化</li>
+            <li>🧲<b>MAGNET</b>: 同色フルーツを引き寄せ</li>
+            <li>💣<b>BOMB</b>: 周囲に衝撃波を放出</li>
+            <li>❄️<b>FREEZE</b>: 相手を一時停止</li>
+            <li>×2<b>DOUBLE</b>: 次の配達が2倍点</li>
           </ul>
         </article>
       </section>
 
+      <!-- ===== Room ===== -->
       <section id="room" class="panel room-panel hidden">
         <h2 id="roomTitle">友達ルーム</h2>
-        <p id="roomHelp"></p>
+        <p id="roomHelp" class="lead"></p>
         <textarea id="signalBox" spellcheck="false" placeholder="ここに招待または返事のテキストが出ます"></textarea>
-        <div class="button-grid compact">
-          <button id="copySignal">コピー</button>
-          <button id="pasteSignal">貼り付けて接続</button>
-          <button id="startNet" class="primary">接続できたら開始</button>
-          <button id="backMenu">戻る</button>
+        <div class="button-grid two">
+          <button id="copySignal">📋 コピー</button>
+          <button id="pasteSignal">📥 貼って接続</button>
+        </div>
+        <div class="button-grid two">
+          <button id="startNet" class="primary">▶ 開始</button>
+          <button id="backMenu">← 戻る</button>
         </div>
         <p id="netStatus" class="status">未接続</p>
       </section>
 
+      <!-- ===== Game ===== -->
       <section id="game" class="game hidden">
-        <canvas id="arena" width="420" height="820" aria-label="Picnic Comet Rally game arena"></canvas>
+        <canvas id="arena" width="420" height="820" aria-label="Picnic Comet Rally arena"></canvas>
+
+        <!-- Top HUD -->
         <div class="hud top">
-          <div><b id="p1Score">0</b><span>YOU</span></div>
-          <div class="timer"><b id="timer">60</b><span>sec</span></div>
-          <div><b id="p2Score">0</b><span id="rivalLabel">BOT</span></div>
+          <div class="score-card you">
+            <span class="lab">YOU</span>
+            <b id="p1Score">0</b>
+            <div class="combo" id="p1Combo">×1</div>
+          </div>
+          <div class="timer-card">
+            <b id="timer">60</b>
+            <span>sec</span>
+            <div class="timer-bar"><i id="timerBar"></i></div>
+          </div>
+          <div class="score-card rival">
+            <span class="lab" id="rivalLabel">BOT</span>
+            <b id="p2Score">0</b>
+            <div class="combo" id="p2Combo">×1</div>
+          </div>
         </div>
-        <div id="recipe" class="recipe"></div>
-        <div class="hud bottom">
-          <button id="pulseBtn" class="pulse">ポン！</button>
-          <button id="leaveBtn">終了</button>
+
+        <!-- Recipe (target plate) -->
+        <div id="recipe" class="recipe">
+          <span class="recipe-label">レシピ</span>
+          <div class="recipe-dots" id="recipeDots"></div>
         </div>
+
+        <!-- Lead indicator -->
+        <div id="leadFlag" class="lead-flag hidden"></div>
+
+        <!-- Power-up active badges -->
+        <div id="buffBar" class="buff-bar"></div>
+
+        <!-- Virtual stick + action buttons -->
+        <div id="stickZone" class="stick-zone">
+          <div id="stickBase" class="stick-base hidden">
+            <div id="stickKnob" class="stick-knob"></div>
+          </div>
+        </div>
+
+        <div class="action-stack">
+          <button id="dashBtn" class="action dash" aria-label="ダッシュ">
+            <span class="ic">⚡</span>
+            <span class="lab">DASH</span>
+            <i class="cool" id="dashCool"></i>
+          </button>
+          <button id="pulseBtn" class="action pulse" aria-label="ポン">
+            <span class="ic">💥</span>
+            <span class="lab">POP</span>
+            <i class="cool" id="pulseCool"></i>
+          </button>
+        </div>
+
+        <button id="leaveBtn" class="quit" aria-label="終了">✕</button>
+
         <div id="toast" class="toast hidden"></div>
+        <div id="bigToast" class="big-toast hidden"></div>
+
+        <!-- Countdown overlay -->
+        <div id="countdown" class="countdown hidden"><span id="countNum">3</span></div>
       </section>
+
+      <!-- ===== Result ===== -->
+      <section id="result" class="panel result-panel hidden">
+        <div class="result-card">
+          <div id="resultBadge" class="result-badge">WIN!</div>
+          <h2 id="resultTitle">ピクニック王！</h2>
+          <div class="result-scores">
+            <div class="rs you"><span>YOU</span><b id="rYou">0</b></div>
+            <div class="vs">vs</div>
+            <div class="rs rival"><span id="rRivalLab">BOT</span><b id="rRival">0</b></div>
+          </div>
+          <div class="result-stats">
+            <div><span>最大コンボ</span><b id="rMaxCombo">×1</b></div>
+            <div><span>配達数</span><b id="rDeliveries">0</b></div>
+            <div><span>ポン命中</span><b id="rPulses">0</b></div>
+          </div>
+          <div class="button-grid two">
+            <button id="rRematch" class="primary">🔁 もう一度</button>
+            <button id="rMenu">🏠 メニュー</button>
+          </div>
+        </div>
+      </section>
+
     </main>
     <script type="module" src="src/game.js"></script>
   </body>

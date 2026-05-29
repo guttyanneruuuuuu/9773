@@ -1,25 +1,66 @@
-# Picnic Comet Rally
+# 🌠 Picnic Comet Rally **ULTRA**
 
-A colorful portrait-browser party game that can run from static hosting such as GitHub Pages. Create a room, exchange invite text with a friend, or play instantly against a bot.
+ネオン夜空のピクニックを舞台にした、ガチで白熱する縦画面の1対1対戦アクションゲーム。
+静的ホスティング（GitHub Pages 等）で完結します。
 
-## Play locally
+## ⚡ 強化ポイント（ULTRA版）
+
+### 操作性
+- **仮想ジョイスティック**: 画面のどこを触ってもその場にスティックが出現。指の動きで自由自在。
+- **ダッシュ**: 一気に加速して相手をすり抜け＆体当たり。タックル中に当たれば**カーゴをスナッチ**できる。
+- **ポン！（衝撃波）**: 周囲を吹き飛ばし、相手のフルーツを落とさせる。クールタイム表示付き。
+- **キーボード対応**: PCでも遊べる（WASD / 矢印 / Space=ポン / Shift=ダッシュ）。
+
+### ゲームバランス・対決の白熱化
+- **コンボシステム**: 連続配達で得点倍率が ×1 → ×5 に。失敗するとリセット。
+- **サドンデス**: 残り10秒で**得点2倍 ＆ スピードアップ**。逆転チャンスを最大化。
+- **ゴールド果実**: 時々出現するボーナス点フルーツ。コンボ中にとると激熱。
+- **AI難易度4段**: かんたん / ふつう / むずい / 激辛 から選択可能。
+- **6種のパワーアップ**:
+  - ⚡ SPEED / 🛡 SHIELD / 🧲 MAGNET / 💣 BOMB / ❄️ FREEZE / ×2 DOUBLE
+- **リードフラグ表示**: 「+150 LEAD」「-80 DOWN」で局面が一目でわかる。
+- **ピックポケット**: ダッシュ命中で相手のフルーツを奪い取る。
+
+### デザイン・UI
+- **ネオン×ピクニックの新ビジュアル**: ダークパープルの夜空にカラフルなフルーツ。
+- **スコア・タイマー・コンボ・残りバフ・レシピ**を全て常時可視化。
+- **HUD**: 自分（YOU=ピンク）/ 相手（BOT=シアン）の色分けで瞬時に判別。
+- **演出**: 画面シェイク、パーティクル、衝撃波リング、フローティングテキスト、表情つきキャラ。
+- **カウントダウン → GO! → 試合 → 結果画面** の流れで没入感アップ。
+- **結果画面**: 勝敗バッジ、最大コンボ、配達数、ポン命中数を表示し「もう一度」も即可能。
+
+### サウンド
+- **WebAudio で内蔵**: ピックアップ音、成功ファンファーレ、失敗音、サドンデスアラート、衝突音など。
+
+## ▶ プレイ方法（ローカル）
 
 ```bash
 python3 -m http.server 8000
 ```
+ブラウザで <http://localhost:8000> を開く。
 
-Then open <http://localhost:8000> in a browser.
+## 🌐 GitHub Pages
 
-## GitHub Pages
+ビルド不要のピュア静的サイト（`index.html` / `styles.css` / `src/game.js` / `src/sound.js`）。
 
-The game is a plain static site: `index.html`, `styles.css`, and `src/game.js`. No build step or backend is required.
+## 👥 友達対戦（WebRTC）
 
-## Friend rooms
+サーバー不要・招待テキストを交換する手動シグナリング方式：
 
-Friend rooms use direct WebRTC data channels with manual invite/answer text, so the game can stay fully static:
+1. ホストが **ルーム作成** → 招待テキストをコピーして友達へ送る。
+2. ゲストが **招待で参加** → 招待を貼り付け → 返事テキストをコピーしてホストへ送る。
+3. ホストが返事を貼り付け → **開始**。
 
-1. Host chooses **友達ルームを作る** and copies the invite text.
-2. Guest chooses **招待で参加**, pastes the invite, and copies the answer text.
-3. Host pastes the answer and starts the match.
+ネットワーク制約で WebRTC が繋がらない場合は、いつでも **ボット戦** で遊べます。
 
-If WebRTC cannot connect because of a restrictive network, the bot match remains available.
+## 🎮 操作まとめ
+
+| 操作 | スマホ | PC |
+|---|---|---|
+| 移動 | 画面ドラッグ（仮想スティック） | WASD / 矢印 |
+| ダッシュ | DASHボタン | Shift / Z |
+| ポン！ | POPボタン | Space / X |
+
+## 🏆 勝利条件
+
+60秒で **得点が多い方の勝ち**。サドンデス中は得点2倍 ＋ コンボで爆発的に伸ばせる！
